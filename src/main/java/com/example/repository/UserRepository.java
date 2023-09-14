@@ -1,15 +1,14 @@
-package repository;
+package com.example.repository;
 
 
-import model.User;
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
+import com.example.model.User;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 
 /**
  * Handles the database operation as create, read, update, delete an {@link User} object.
  */
-@Repository
-public interface UserRepository extends MongoRepository<User, String> {
+
+public interface UserRepository extends ReactiveMongoRepository<User, String> {
 
 
 }

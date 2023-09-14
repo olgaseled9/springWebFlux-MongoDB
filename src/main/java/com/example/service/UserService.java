@@ -1,6 +1,9 @@
-package service;
+package com.example.service;
 
 import com.example.dto.UserDto;
+import com.example.repository.UserRepository;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -8,14 +11,17 @@ import java.util.List;
  * Implementation of {@link UserService}.
  */
 public interface UserService {
+
     void create(UserDto userDto);
 
-    List<UserDto> findAll();
+    Mono<UserDto> findById(String id);
 
-    UserDto findById(String id);
+    Flux<UserDto> findByName(String name);
 
-    void deleteById(String id);
+    Flux<UserDto> findAll();
 
-    void update(UserDto oldUser, UserDto updatedUser);
+    Mono<UserDto> update(UserDto userDto);
+
+    Mono<Void> delete(String id);
 
 }

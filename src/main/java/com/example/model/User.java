@@ -1,4 +1,4 @@
-package model;
+package com.example.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -9,14 +9,14 @@ import java.util.Date;
  * Container for User's entity data, getter and setter methods.
  * @see User
  */
-@Document
+@Document(collection = "users")
 public class User {
 
     /**
      * Id.
      */
     @Id
-    private Long userId;
+    private String userId;
 
     /**
      * Firstname.
@@ -46,11 +46,11 @@ public class User {
     public User() {
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

@@ -1,4 +1,4 @@
-package service;
+package com.example.service;
 /**
  * Thrown when entity cannot be found, added, updated or removed.
  */
