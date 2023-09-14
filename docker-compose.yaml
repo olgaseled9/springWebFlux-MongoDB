@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: spring-boot-react-crud-example_server
+    ports:
+      - "8888:8080"
+    volumes:
+      - ./server:/app
+      - ./custom.properties:/app/config/application.properties:ro
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD:
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: spring-boot-react-crud-example_client
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/app
+    environment:
+      REACT_APP_API_BASE_URL: http://server:8080
